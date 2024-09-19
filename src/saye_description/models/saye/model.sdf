@@ -46,7 +46,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/base_link.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/base_link.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -55,7 +55,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/bumper.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/bumper.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -65,7 +65,7 @@
           <mesh>
             <scale>1 1 1</scale>
             <!-- <mesh filename="/sensor_rack_lowres_shallow_laser.dae"/> -->
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/bumper.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/bumper.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -74,7 +74,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/top_chassis.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/top_chassis.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -107,7 +107,7 @@
         <pose >0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/sensor_rack_lowres_shallow_laser.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/sensor_rack_lowres_shallow_laser.dae</uri>
             <scale>1 1 1</scale>
           </mesh>
         </geometry>
@@ -469,7 +469,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/wheel.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -537,7 +537,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/wheel.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -605,7 +605,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/wheel.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -673,7 +673,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>file://home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/wheel.dae</uri>
+            <uri>file:///home/tekes/Documents/my_ros_exercise/proje_ws/src/saye_description/models/saye/meshes/wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
