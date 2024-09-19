@@ -1,4 +1,4 @@
-#include "control_pkg/control.hpp"
+#include "saye_control/control.hpp"
 
 int main(int argc, char **argv)
 {
@@ -14,7 +14,7 @@ int main(int argc, char **argv)
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
     }
     
-    auto request = std::make_shared<proje_msgs::srv::ShareMap::Request>();
+    auto request = std::make_shared<saye_msgs::srv::ShareMap::Request>();
     request->topic_name = "my_topic";
     auto respond = control->client->async_send_request(request);
 

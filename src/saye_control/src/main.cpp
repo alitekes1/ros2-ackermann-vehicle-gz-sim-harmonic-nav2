@@ -1,4 +1,4 @@
-#include "control_pkg/control.hpp"
+#include "saye_control/control.hpp"
 
 int main(int argc, char **argv)
 {

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(control_pkg)
+project(saye_control)
 
 # Set C++ standard to C++14
 if(NOT CMAKE_CXX_STANDARD)
@@ -16,7 +16,7 @@ find_package(rclpy REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
-find_package(proje_msgs REQUIRED)
+find_package(saye_msgs REQUIRED)
 
 include_directories(include)
 
@@ -32,10 +32,10 @@ install(
 )
 
 add_executable(main src/main.cpp)
-ament_target_dependencies(main rclcpp proje_msgs)
+ament_target_dependencies(main rclcpp saye_msgs)
 
 add_executable(client src/client.cpp)
-ament_target_dependencies(client rclcpp proje_msgs)
+ament_target_dependencies(client rclcpp saye_msgs)
 
 install(
   TARGETS 

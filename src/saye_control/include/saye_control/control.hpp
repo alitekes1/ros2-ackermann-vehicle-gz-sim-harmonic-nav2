@@ -2,8 +2,8 @@
 #define CONTROL_HPP
 
 #include "rclcpp/rclcpp.hpp"
-#include "proje_msgs/msg/map.hpp"
-#include "proje_msgs/srv/share_map.hpp"
+#include "saye_msgs/msg/map.hpp"
+#include "saye_msgs/srv/share_map.hpp"
 
 using namespace std::chrono_literals;
 using namespace std::placeholders;
@@ -11,17 +11,17 @@ using namespace std::placeholders;
 class Control : public rclcpp::Node
 {
 private:
-    rclcpp::Subscription<proje_msgs::msg::Map>::SharedPtr sub;
+    rclcpp::Subscription<saye_msgs::msg::Map>::SharedPtr sub;
     rclcpp::Publisher<nav_msgs::msg::OccupancyGrid>::SharedPtr occupancy_grid_pub_to_rviz;
     rclcpp::Publisher<nav_msgs::msg::OccupancyGrid>::SharedPtr publisher_merged_grid;
     rclcpp::TimerBase::SharedPtr timer;
-    rclcpp::Service<proje_msgs::srv::ShareMap>::SharedPtr service;
+    rclcpp::Service<saye_msgs::srv::ShareMap>::SharedPtr service;
 
 public:
-    rclcpp::Client<proje_msgs::srv::ShareMap>::SharedPtr client;
+    rclcpp::Client<saye_msgs::srv::ShareMap>::SharedPtr client;
     void timer_callback();
-    void service_callback(const proje_msgs::srv::ShareMap::Request::SharedPtr request, const proje_msgs::srv::ShareMap::Response::SharedPtr response);
-    void sub_callback(proje_msgs::msg::Map::SharedPtr msg);
+    void service_callback(const saye_msgs::srv::ShareMap::Request::SharedPtr request, const saye_msgs::srv::ShareMap::Response::SharedPtr response);
+    void sub_callback(saye_msgs::msg::Map::SharedPtr msg);
 
     Control() : Node("control_node")
     {
@@ -29,10 +29,10 @@ public:
 
         this->occupancy_grid_pub_to_rviz = create_publisher<nav_msgs::msg::OccupancyGrid>("/map", 10);
 
-        this->sub = create_subscription<proje_msgs::msg::Map>("/laser_scan", 10, std::bind(&Control::sub_callback, this, _1)); // lidar topic ine subscribe olacak.
+        this->sub = create_subscription<saye_msgs::msg::Map>("/laser_scan", 10, std::bind(&Control::sub_callback, this, _1)); // lidar topic ine subscribe olacak.
 
-        this->service = create_service<proje_msgs::srv::ShareMap>("publish_map_service", std::bind(&Control::service_callback, this, _1, _2));
-        this->client = create_client<proje_msgs::srv::ShareMap>("publish_map_service");
+        this->service = create_service<saye_msgs::srv::ShareMap>("publish_map_service", std::bind(&Control::service_callback, this, _1, _2));
+        this->client = create_client<saye_msgs::srv::ShareMap>("publish_map_service");
 
         auto timer_frequency = this->get_parameter("timer_frequancy").as_int();
         this->timer = create_wall_timer(std::chrono::seconds(timer_frequency), std::bind(&Control::timer_callback, this));
@@ -87,12 +87,12 @@ void Control::timer_callback()
     this->occupancy_grid_pub_to_rviz->publish(my_map); // publishing msg to /map topic for path planning and visualize at rviz
 }
 
-void Control::sub_callback(proje_msgs::msg::Map::SharedPtr msg)
+void Control::sub_callback(saye_msgs::msg::Map::SharedPtr msg)
 {
     // gazebo dan laser verisi alınacak ve işlenecek. merged map oluşturulacak.
     RCLCPP_ERROR(get_logger(), "data: %d", msg->header.stamp.sec);
 }
-void Control::service_callback(const proje_msgs::srv::ShareMap::Request::SharedPtr request, const proje_msgs::srv::ShareMap::Response::SharedPtr response)
+void Control::service_callback(const saye_msgs::srv::ShareMap::Request::SharedPtr request, const saye_msgs::srv::ShareMap::Response::SharedPtr response)
 {
     auto merged_map = nav_msgs::msg::OccupancyGrid(); // TODO: merged map paylaşılacak.
     response->custom_occupany_grid = merged_map;
