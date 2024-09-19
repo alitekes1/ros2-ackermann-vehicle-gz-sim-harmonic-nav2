@@ -1,0 +1,44 @@
+<?xml version='1.0'?>
+<sdf version="1.7">
+    <model name="warehouse">
+        <pose>0 0 0 0 0 0</pose>
+        <self_collide>false</self_collide>
+        <!-- BASE_LINK FRAME -->
+        <link name="warehouse_base">
+            <pose>0 0 0 0 0 0</pose>
+            <collision name="warehouse_collision">
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>meshes/warehouse_colision.stl</uri>
+                    </mesh>
+                </geometry>
+            </collision>
+            <visual name="warehouse_visual">
+                <pose>0 0 0 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>meshes/warehouse.dae</uri>
+                    </mesh>
+                </geometry>
+            </visual>
+            <visual name="drop_area_visual">
+                <pose>0 0 0.101 0 0 0</pose>
+                <!-- x y z R P Y -->
+                <geometry>
+                    <mesh>
+                        <scale>1 1 1</scale>
+                        <uri>meshes/warehouse.dae</uri>
+                        <submesh>
+                            <name>drop1</name>
+                            <center>true</center>
+                        </submesh>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+        <static>1</static>
+    </model>
+</sdf>

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>saye_bringup</name>
+  <version>0.0.0</version>
+  <description>Contains launch files for the saye project</description>
+  <maintainer email="michael@openrobotics.org">Michael Carroll</maintainer>
+  <license>Apache 2.0</license>
+  <author>Michael Carroll</author>
+  <author>Dharini Dutia</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>joint_state_publisher_gui</depend>
+  <depend>ros_gz</depend>
+  <depend>sdformat_urdf</depend>
+  <depend>saye_description</depend>
+
+
+  <test_depend>ament_lint_auto</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+
