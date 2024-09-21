@@ -19,7 +19,7 @@
   ros_type_name: "nav_msgs/msg/Odometry"
   gz_type_name: "gz.msgs.OdometryWithCovariance"
   direction: GZ_TO_ROS
-- ros_topic_name: "/saye/scan"
+- ros_topic_name: "/scan"
   gz_topic_name: "/scan"
   ros_type_name: "sensor_msgs/msg/LaserScan"
   gz_type_name: "gz.msgs.LaserScan"
@@ -39,23 +39,23 @@
   ros_type_name: "tf2_msgs/msg/TFMessage"
   gz_type_name: "gz.msgs.Pose_V"
   direction: GZ_TO_ROS
-- ros_topic_name: "/image_raw"
-  gz_topic_name: "/world/my_world/model/saye/link/sensor_rack/sensor/camera_realsense/image"
-  ros_type_name: "sensor_msgs/msg/Image"
-  gz_type_name: "gz.msgs.Image"
-  direction: GZ_TO_ROS
-- ros_topic_name: "/saye/imu"
-  gz_topic_name: "/world/my_world/model/saye/link/imu_link/sensor/imu/imu"
-  ros_type_name: "sensor_msgs/msg/Imu"
-  gz_type_name: "gz.msgs.IMU"
-  direction: GZ_TO_ROS
-- ros_topic_name: "/depth_image"
-  gz_topic_name: "/world/my_world/model/saye/link/sensor_rack/sensor/camera_realsense/depth_image"
-  ros_type_name: "sensor_msgs/msg/Image"
-  gz_type_name: "gz.msgs.Image"
-  direction: GZ_TO_ROS
-- ros_topic_name: "/depth_point"
-  gz_topic_name: "/world/my_world/model/saye/link/sensor_rack/sensor/camera_realsense/points"
-  ros_type_name: "sensor_msgs/msg/PointCloud2"
-  gz_type_name: "gz.msgs.PointCloudPacked"
-  direction: GZ_TO_ROS
+# - ros_topic_name: "/image_raw"
+#   gz_topic_name: "/world/my_world/model/saye/link/sensor_rack/sensor/camera_realsense/image"
+#   ros_type_name: "sensor_msgs/msg/Image"
+#   gz_type_name: "gz.msgs.Image"
+#   direction: GZ_TO_ROS
+# - ros_topic_name: "/saye/imu"
+#   gz_topic_name: "/world/my_world/model/saye/link/imu_link/sensor/imu/imu"
+#   ros_type_name: "sensor_msgs/msg/Imu"
+#   gz_type_name: "gz.msgs.IMU"
+#   direction: GZ_TO_ROS
+# - ros_topic_name: "/depth_image"
+#   gz_topic_name: "/world/my_world/model/saye/link/sensor_rack/sensor/camera_realsense/depth_image"
+#   ros_type_name: "sensor_msgs/msg/Image"
+#   gz_type_name: "gz.msgs.Image"
+#   direction: GZ_TO_ROS
+# - ros_topic_name: "/depth_point"
+#   gz_topic_name: "/world/my_world/model/saye/link/sensor_rack/sensor/camera_realsense/points"
+#   ros_type_name: "sensor_msgs/msg/PointCloud2"
+#   gz_type_name: "gz.msgs.PointCloudPacked"
+#   direction: GZ_TO_ROS
