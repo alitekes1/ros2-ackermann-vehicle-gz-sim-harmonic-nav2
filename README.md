@@ -27,13 +27,13 @@ Additionally, this simulation is one of the first implementations of an Ackerman
 
 - **Nav2 Integration**: The next phase of this project will include the Nav2 stack for autonomous navigation and path planning.
 - **Deep Reinforcement Learning (DRL)**: Future efforts may focus on training the vehicle for complex scenarios using DRL algorithms.
-## Gallery
 
 ## Gallery
-![[Screenshot from 2024-09-23 00-09-48.png]]
+![[Screenshot from 2024-09-23 00-09-48.png]](https://github.com/user-attachments/assets/dd5604c6-014e-4a7a-9a2f-c4dd237abb37)
+![Screenshot from 2024-09-23 00-13-03]
 
 | **Gazebo Sim Harmonic**                      | **RViz2**                                   |
 | -------------------------------------------- | -------------------------------------------- |
-| ![[Screenshot from 2024-09-23 00-13-03.png]] | ![[Screenshot from 2024-09-23 00-09-04.png]] |
-| ![[Screenshot from 2024-09-23 00-12-13.png]] | ![[Screenshot from 2024-09-23 00-15-04.png]] |
+| ![[Screenshot from 2024-09-23 00-13-03.png]](https://github.com/user-attachments/assets/1d2b56f7-34c1-4b01-9a85-fb01ceab5bd6) | ![[Screenshot from 2024-09-23 00-09-04.png]](https://github.com/user-attachments/assets/ba6853fd-4143-4b4d-bbc6-072895e4c75e) |
+| ![[Screenshot from 2024-09-23 00-12-13.png]](https://github.com/user-attachments/assets/477cce7b-995b-471e-a684-4d82bee0fc34) | ![[Screenshot from 2024-09-23 00-15-04.png]](https://github.com/user-attachments/assets/bf9ad916-14a6-4b62-a799-4169a767e4dd) |
 
