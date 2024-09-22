@@ -24,12 +24,6 @@ install(
   DIRECTORY include
   DESTINATION include
 )
-install(
-  DIRECTORY
-    launch
-  DESTINATION
-    share/${PROJECT_NAME}/
-)
 
 add_executable(main src/main.cpp)
 ament_target_dependencies(main rclcpp saye_msgs)

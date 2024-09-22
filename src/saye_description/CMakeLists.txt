@@ -19,6 +19,7 @@ endif()
 install(DIRECTORY
   models
   worlds
+  hooks
   DESTINATION share/${PROJECT_NAME}/
 )
 

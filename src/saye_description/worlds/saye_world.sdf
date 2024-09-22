@@ -23,7 +23,7 @@
         name="gz::sim::systems::Imu">
     </plugin>
 
-    <light name="sun" type="directional">
+    <light name="sun2" type="directional">
       <cast_shadows>true</cast_shadows>
       <pose>0 0 10 0 0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
@@ -71,7 +71,7 @@
           <uri>model://saye_description/models/saye/model.sdf</uri>
       </include>
       
-      <plugin
+       <plugin
         filename="gz-sim-joint-state-publisher-system"
         name="gz::sim::systems::JointStatePublisher">
       </plugin>
@@ -81,14 +81,14 @@
         name="gz::sim::systems::PosePublisher">
         <publish_link_pose>true</publish_link_pose>
         <use_pose_vector_msg>true</use_pose_vector_msg>
-        <static_publisher>true</static_publisher>
+        <static_publisher>false</static_publisher>
         <static_update_frequency>1</static_update_frequency>
       </plugin>
 
       <plugin
           filename="gz-sim-odometry-publisher-system"
           name="gz::sim::systems::OdometryPublisher">
-          <odom_frame>saye/odom</odom_frame>
+          <odom_frame>odom</odom_frame>
           <robot_base_frame>saye</robot_base_frame>
       </plugin>
     </model>
@@ -98,12 +98,6 @@
       <pose>0 0 -0.09 0 0 0</pose>
       <uri>model://saye_description/worlds/warehouse/model.sdf</uri>
     </include>
-
-    <!-- <include>
-      <name>rover_ackermann</name> 
-      <pose>0 0 -0.09 0 0 0</pose>
-          <uri>model://saye_description/models/MR-Buggy3/model.sdf</uri>
-    </include> -->
 
   </world>
 </sdf>

@@ -3,11 +3,12 @@
     <!-- <pose>0 0 .04 0 0 0</pose> -->
     <self_collide>false</self_collide>
     <static>false</static>
-    <link name="base_footprint"/>
+    <!-- <link name="base_footprint"></link> -->
 
     <link name="base_link">
+      <gz_frame_id>saye/base_link</gz_frame_id>
       <inertial>
-        <pose>0 0 0 0 0 0</pose>
+        <pose >0 0 0 0 0 0</pose>
         <mass>3.0</mass>
         <inertia>
           <ixx>0.0054</ixx>
@@ -22,7 +23,7 @@
         <pose>.1371 0 -.0115 -0.018 0 1.5707</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/Documents/my_ros_exercise/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/BaseReduced.dae</uri>
+           <uri >file:///home/tekes/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/BaseReduced.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -31,7 +32,7 @@
         <geometry>
           <mesh>
           /meshes/BaseReduced.dae
-           <uri >file:///home/tekes/Documents/my_ros_exercise/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/TopReduced.dae</uri>
+           <uri >file:///home/tekes/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/TopReduced.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -43,28 +44,10 @@
           </box>
         </geometry>
       </collision>
-      <sensor name="NPUSim/Camera" type="camera">
-        <pose>.16 0 .3 0 0.5 0</pose>
-        <always_on>1</always_on>
-        <update_rate>10</update_rate>
-        <camera>
-          <horizontal_fov>1.5</horizontal_fov>
-          <image>
-            <width>300</width>
-            <height>300</height>
-            <format>R8G8B8</format>
-          </image>
-          <clip>
-            <near>0.1</near>
-            <far>1000</far>
-          </clip>
-        </camera>
-        <topic>NPU/image_sim</topic>
-        <enable_metrics>true</enable_metrics>
-      </sensor>
     </link>
+
     <link name="sensor_link">
-      <pose>.05 0 .134 0 0 0</pose>
+      <pose >.05 0 .134 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.0000001</mass>
@@ -77,17 +60,28 @@
           <izz>0.000000000001</izz>
         </inertia>
       </inertial>
-      <visual name="visual_lidar">
+      <visual name="saye/visual_lidar">
         <pose>0 0 -.028 0 0 0</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/Documents/my_ros_exercise/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/STL27L.dae</uri>
+           <uri >file:///home/tekes/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/STL27L.dae</uri>
           </mesh>
         </geometry>
       </visual>
+      <visual name="saye/camera_rack">
+        <pose>-0.05 0 0.05 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.03 0.03 0.03</size>
+          </box>
+        </geometry>
+      </visual>
+
       <sensor name="imu_sensor" type="imu">
         <always_on>1</always_on>
         <update_rate>50</update_rate>
+        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+        <topic>imu</topic>
         <imu>
           <enable_orientation>0</enable_orientation>
           <angular_velocity>
@@ -162,42 +156,17 @@
           </linear_acceleration>
         </imu>
       </sensor>
-      <sensor name="magnetometer" type="magnetometer">
-        <always_on>1</always_on>
-        <update_rate>50</update_rate>
-        <magnetometer>
-          <x>
-            <noise type="gaussian">
-              <mean>0.000000080</mean>
-              <bias_mean>0.000000400</bias_mean>
-            </noise>
-          </x>
-          <y>
-            <noise type="gaussian">
-              <mean>0.000000080</mean>
-              <bias_mean>0.000000400</bias_mean>
-            </noise>
-          </y>
-          <z>
-            <noise type="gaussian">
-              <mean>0.000000080</mean>
-              <bias_mean>0.000000400</bias_mean>
-            </noise>
-          </z>
-        </magnetometer>
-      </sensor>
-      <sensor name="altimeter_sensor" type="altimeter">
-        <always_on>1</always_on>
-        <update_rate>50</update_rate>
-      </sensor>
       <sensor name="navsat_sensor" type="navsat">
         <always_on>1</always_on>
         <update_rate>10</update_rate>
+        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+        <topic>navsat</topic>
         <navsat>
           <position_sensing></position_sensing>
           <velocity_sensing></velocity_sensing>
         </navsat>
       </sensor>
+      
       <sensor name="gpu_lidar" type="gpu_lidar">
         <lidar>
           <scan>
@@ -215,8 +184,8 @@
             </vertical>
           </scan>
           <range>
-            <min>0.5</min>
-            <max>100</max>
+            <min>0.3</min>
+            <max>50</max>
             <resolution>0.01</resolution>
           </range>
           <noise>
@@ -230,16 +199,252 @@
         <visualize>true</visualize>
         <update_rate>10</update_rate>
       </sensor>
+
+      <sensor name="rs_front" type="rgbd_camera">
+        <pose>0.122 0 0.257 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>10</update_rate>
+        <camera name="rs_front">
+          <horizontal_fov>1.50098</horizontal_fov>
+          <lens>
+            <intrinsics>
+              <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+              <fx>343.159</fx>
+              <fy>343.159</fy>
+              <!-- cx = ( width - 1 ) / 2 -->
+              <cx>319.5</cx>
+              <!-- cy = ( height - 1 ) / 2 -->
+              <cy>179.5</cy>
+              <s>0</s>
+            </intrinsics>
+          </lens>
+          <distortion>
+            <k1>0.0</k1>
+            <k2>0.0</k2>
+            <k3>0.0</k3>
+            <p1>0.0</p1>
+            <p2>0.0</p2>
+            <center>0.5 0.5</center>
+          </distortion>
+          <image>
+            <width>640</width>
+            <height>360</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.01</near>
+            <far>300</far>
+          </clip>
+          <depth_camera>
+            <clip>
+              <near>0.1</near>
+              <far>10</far>
+            </clip>
+          </depth_camera>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+        <topic>rs_front</topic>
+        <visualize>true</visualize>
+      </sensor>
+
+       <sensor name="camera_front" type="camera">
+         <pose>0.111 0.03 0.235 0 0 0</pose>
+         <always_on>1</always_on>
+         <update_rate>10</update_rate>
+         <!-- <topic>camera_front<topic> -->
+         <camera name="camera_front">
+           <horizontal_fov>1.658</horizontal_fov>
+           <lens>
+             <intrinsics>
+               <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+               <fx>329.9</fx>
+               <fy>329.9</fy>
+               <!-- cx = ( width - 1 ) / 2 -->
+               <cx>359.5</cx>
+               <!-- cy = ( height - 1 ) / 2 -->
+               <cy>539.5</cy>
+               <s>0</s>
+             </intrinsics>
+           </lens>
+           <distortion>
+             <k1>0.0</k1>
+             <k2>0.0</k2>
+             <k3>0.0</k3>
+             <p1>0.0</p1>
+             <p2>0.0</p2>
+             <center>0.5 0.5</center>
+           </distortion>
+           <image>
+             <width>720</width>
+             <height>1080</height>
+             <format>R8G8B8</format>
+           </image>
+           <clip>
+             <near>0.01</near>
+             <far>300</far>
+           </clip>
+           <noise>
+             <type>gaussian</type>
+             <mean>0</mean>
+             <stddev>0.007</stddev>
+           </noise>
+         </camera>
+        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+        <topic>camera_front</topic>
+        <visualize>true</visualize>
+       </sensor>
+
+       <sensor name="camera_rear" type="camera">
+         <pose>0.069 -0.03 0.235 0 0 3.141592653589793</pose>
+         <always_on>1</always_on>
+         <update_rate>10</update_rate>
+         <camera name="camera_rear">
+           <horizontal_fov>1.658</horizontal_fov>
+           <lens>
+             <intrinsics>
+               <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+               <fx>329.9</fx>
+               <fy>329.9</fy>
+               <!-- cx = ( width - 1 ) / 2 -->
+               <cx>359.5</cx>
+               <!-- cy = ( height - 1 ) / 2 -->
+               <cy>539.5</cy>
+               <s>0</s>
+             </intrinsics>
+           </lens>
+           <distortion>
+             <k1>0.0</k1>
+             <k2>0.0</k2>
+             <k3>0.0</k3>
+             <p1>0.0</p1>
+             <p2>0.0</p2>
+             <center>0.5 0.5</center>
+           </distortion>
+           <image>
+             <width>720</width>
+             <height>1080</height>
+             <format>R8G8B8</format>
+           </image>
+           <clip>
+             <near>0.01</near>
+             <far>300</far>
+           </clip>
+           <noise>
+             <type>gaussian</type>
+             <mean>0</mean>
+             <stddev>0.007</stddev>
+           </noise>
+         </camera>
+         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <topic>camera_rear</topic>
+         <visualize>true</visualize>
+       </sensor>
+
+       <sensor name="camera_left" type="camera">
+         <pose>0.085 0.09 0.27 0 0 1.5707963267948966</pose>
+         <always_on>1</always_on>
+         <update_rate>10</update_rate>
+        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <camera name="camera_left">
+           <horizontal_fov>1.658</horizontal_fov>
+           <lens>
+             <intrinsics>
+               <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+               <fx>329.9</fx>
+               <fy>329.9</fy>
+               <!-- cx = ( width - 1 ) / 2 -->
+               <cx>359.5</cx>
+               <!-- cy = ( height - 1 ) / 2 -->
+               <cy>539.5</cy>
+               <s>0</s>
+             </intrinsics>
+           </lens>
+           <distortion>
+             <k1>0.0</k1>
+             <k2>0.0</k2>
+             <k3>0.0</k3>
+             <p1>0.0</p1>
+             <p2>0.0</p2>
+             <center>0.5 0.5</center>
+           </distortion>
+           <image>
+             <width>720</width>
+             <height>1080</height>
+             <format>R8G8B8</format>
+           </image>
+           <clip>
+             <near>0.01</near>
+             <far>300</far>
+           </clip>
+           <noise>
+             <type>gaussian</type>
+             <mean>0</mean>
+             <stddev>0.007</stddev>
+           </noise>
+         </camera>
+         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <topic>camera_left</topic>
+         <visualize>true</visualize>
+       </sensor>
+
+       <sensor name="camera_right" type="camera">
+         <pose>0.085 -0.09 0.27 0 0 -1.5707963267948966</pose>
+         <always_on>1</always_on>
+         <update_rate>10</update_rate>
+         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <camera name="camera_right">
+           <horizontal_fov>1.658</horizontal_fov>
+           <lens>
+             <intrinsics>
+               <!-- fx = fy = width / ( 2 * tan (hfov / 2 ) ) -->
+               <fx>329.9</fx>
+               <fy>329.9</fy>
+               <!-- cx = ( width - 1 ) / 2 -->
+               <cx>359.5</cx>
+               <!-- cy = ( height - 1 ) / 2 -->
+               <cy>539.5</cy>
+               <s>0</s>
+             </intrinsics>
+           </lens>
+           <distortion>
+             <k1>0.0</k1>
+             <k2>0.0</k2>
+             <k3>0.0</k3>
+             <p1>0.0</p1>
+             <p2>0.0</p2>
+             <center>0.5 0.5</center>
+           </distortion>
+           <image>
+             <width>720</width>
+             <height>1080</height>
+             <format>R8G8B8</format>
+           </image>
+           <clip>
+             <near>0.01</near>
+             <far>300</far>
+           </clip>
+           <noise>
+             <type>gaussian</type>
+             <mean>0</mean>
+             <stddev>0.007</stddev>
+           </noise>
+         </camera>
+         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <topic>camera_right</topic>
+         <visualize>true</visualize>
+       </sensor>
     </link>
-    <joint name="base_joint" type="fixed">
-      <parent>base_footprint</parent>
-      <child>base_link</child>
-      <pose>0.0 0.0 -0.04 0 0 0</pose>
-    </joint>
+
     <joint name="sensor_joint" type="fixed">
+        <pose >0 0 0 0 0 0</pose>
         <parent>base_link</parent>
         <child>sensor_link</child>
-        <pose>0.0 0.0 0.0 0 0 0</pose>
+        <use_parent_model_frame>1</use_parent_model_frame>
     </joint>
 
     <link name="front_left_wheel_link">
@@ -261,7 +466,7 @@
         <pose>0 0 0 0 0 3.14159</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/Documents/my_ros_exercise/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/Wheel.dae</uri>
+           <uri >file:///home/tekes/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/Wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -344,15 +549,15 @@
       </inertial>
       <gravity>true</gravity>
       <velocity_decay/>
-      <visual name="FrontRightWheelVisual">
+      <visual name="saye/FrontRightWheelVisual">
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-           <uri>file:///home/tekes/Documents/my_ros_exercise/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/Wheel.dae</uri>
+           <uri>file:///home/tekes/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/Wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
-      <collision name="FrontRightWheelCollision">
+      <collision name="saye/FrontRightWheelCollision">
         <pose>0 .015 0 -1.5707 0 0</pose>
         <geometry>
           <cylinder>
@@ -469,7 +674,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/Documents/my_ros_exercise/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/Wheel.dae</uri>
+           <uri >file:///home/tekes/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/Wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -511,7 +716,7 @@
         <pose>0 0 0 0 0 3.14159</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/Documents/my_ros_exercise/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/Wheel.dae</uri>
+           <uri >file:///home/tekes/gazebo_sim_custom_four_wheel_vehicle/src/saye_description/models/saye/meshes/Wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
