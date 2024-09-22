@@ -30,7 +30,6 @@ Additionally, this simulation is one of the first implementations of an Ackerman
 
 ## Gallery
 ![[Screenshot from 2024-09-23 00-09-48.png]](https://github.com/user-attachments/assets/dd5604c6-014e-4a7a-9a2f-c4dd237abb37)
-![Screenshot from 2024-09-23 00-13-03]
 
 | **Gazebo Sim Harmonic**                      | **RViz2**                                   |
 | -------------------------------------------- | -------------------------------------------- |
