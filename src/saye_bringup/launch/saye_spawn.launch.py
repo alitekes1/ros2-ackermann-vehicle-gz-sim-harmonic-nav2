@@ -49,7 +49,7 @@ def generate_launch_description():
     rviz = Node(
        package='rviz2',
        executable='rviz2',
-       arguments=['-d', os.path.join(pkg_project_bringup, 'config', 'saye.rviz')],
+       arguments=['-d', os.path.join(pkg_project_bringup, 'config', 'navigation.rviz')],
        condition=IfCondition(LaunchConfiguration('rviz'))
     )
 

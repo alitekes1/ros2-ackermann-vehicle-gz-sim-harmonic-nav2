@@ -8,16 +8,20 @@ find_package(saye_description REQUIRED)
 # Install project launch files
 install(
   DIRECTORY
-    launch/
-  DESTINATION share/${PROJECT_NAME}/launch
+    launch
+    maps
+    config
+  DESTINATION share/${PROJECT_NAME}/
 )
 
 # Install project configuration files
-install(
-  DIRECTORY
-    config/
-  DESTINATION share/${PROJECT_NAME}/config
-)
+# install(
+#   DIRECTORY
+#     config/
+#   DESTINATION share/${PROJECT_NAME}/config
+# )
+
+
 # install(DIRECTORY
 #   config
 #   launch

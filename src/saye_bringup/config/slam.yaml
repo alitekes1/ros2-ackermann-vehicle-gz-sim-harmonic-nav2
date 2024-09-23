@@ -12,7 +12,7 @@ slam:
     # ROS Parameters
     odom_frame: odom
     map_frame: map
-    base_frame: base_link
+    base_frame: saye
     scan_topic: /scan
 
     # mode: mapping # It will be set in launch file
@@ -21,7 +21,7 @@ slam:
     transform_publish_period: 0.02 # If 0 never publishes odometry
     map_update_interval: 2.0
     resolution: 0.04
-    max_laser_range: 50
+    max_laser_range: 50.0
     minimum_time_interval: 0.1
     transform_timeout: 0.2
     tf_buffer_duration: 20.0
