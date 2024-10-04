@@ -80,8 +80,8 @@ behavior_server:
     robot_base_frame: saye
     transform_timeout: 0.1
     simulate_ahead_time: 2.0
-    max_rotational_vel: 1.0
-    min_rotational_vel: 0.4
+    max_rotational_vel: 2.0
+    min_rotational_vel: 0.6
     rotational_acc_lim: 3.2
 
 bt_navigator:
@@ -132,7 +132,10 @@ bt_navigator_rclcpp_node:
 
 controller_server:
   ros__parameters:
+    allow_reverse: true
     controller_frequency: 30.0
+    goal_tolerance: 1
+    yaw_goal_tolerance: 0.5
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController" # model predict path integral controller
       time_steps: 56
@@ -141,17 +144,17 @@ controller_server:
       vx_std: 0.2
       vy_std: 0.2
       wz_std: 0.4
-      vx_max: 1.0
-      vx_min: -0.50
+      vx_max: 1.5
+      vx_min: -1.50
       vy_max: 0.0
       wz_max: 2.0
-      ax_max: 3.0
-      ax_min: -3.0
+      ax_max: 1.0
+      ax_min: -1.0
       ay_max: 3.0
       az_max: 3.5
       iteration_count: 1
       prune_distance: 1.7
-      transform_tolerance: 0.1
+      transform_tolerance: 0.5
       temperature: 0.3
       gamma: 0.015
       motion_model: "Ackermann"
@@ -162,7 +165,7 @@ controller_server:
         trajectory_step: 5
         time_step: 3
       AckermannConstraints:
-        min_turning_r: 0.2
+        min_turning_r: 0.3
       critics: ["ConstraintCritic", "CostCritic", "GoalCritic", "GoalAngleCritic", "PathAlignCritic", "PathFollowCritic", "PathAngleCritic", "PreferForwardCritic"]
       ConstraintCritic:
         enabled: true
@@ -257,16 +260,16 @@ local_costmap:
       rolling_window: True
       always_send_full_costmap: True
 
-      # robot_radius: 0.23
-      footprint: "[[0.15, 0.045], [0.15, -0.045], [-0.15, -0.045], [-0.15, 0.045]]"
+      robot_radius: 0.23
+      # footprint: "[[0.15, 0.045], [0.15, -0.045], [-0.15, -0.045], [-0.15, 0.045]]"
       footprint_padding: 0.03
 
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         enabled: True
-        inflation_radius: 0.75
-        cost_scaling_factor: 3.0
+        inflation_radius: 0.7
+        cost_scaling_factor: 8.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -307,16 +310,16 @@ global_costmap:
       always_send_full_costmap: True
       track_unknown_space: True
 
-      # robot_radius: 0.23
-      footprint: "[[0.15, 0.045], [0.15, -0.045], [-0.15, -0.045], [-0.15, 0.045]]"
+      robot_radius: 0.23
+      # footprint: "[[0.15, 0.045], [0.15, -0.045], [-0.15, -0.045], [-0.15, 0.045]]"
       footprint_padding: 0.03
 
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         enabled: True
-        inflation_radius: 0.75
-        cost_scaling_factor: 3.0
+        inflation_radius: 0.4
+        cost_scaling_factor: 4.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -346,7 +349,7 @@ global_costmap:
 map_server:
   ros__parameters:
     use_sim_time: True
-    yaml_filename: "map.yaml"
+    yaml_filename: "/home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_bringup/maps/map.yaml"
 
 map_saver:
   ros__parameters:
@@ -358,6 +361,7 @@ map_saver:
 
 planner_server:
   ros__parameters:
+    goal_tolerance: 0.5
     planner_plugins: ["GridBased"]
     use_sim_time: True
 
@@ -375,7 +379,7 @@ planner_server:
       angle_quantization_bins: 64         # For Hybrid nodes: Number of angle bins for search, must be 1 for 2D node (no angle search)
       analytic_expansion_ratio: 3.5       # For Hybrid/Lattice nodes: The ratio to attempt analytic expansions during search for final approach.
       analytic_expansion_max_length: 3.0    # For Hybrid/Lattice nodes: The maximum length of the analytic expansion to be considered valid to prevent unsafe shortcutting (in meters). This should be scaled with minimum turning radius and be no less than 4-5x the minimum radius
-      minimum_turning_radius: 0.2        # For Hybrid/Lattice nodes: minimum turning radius in m of path / vehicle
+      minimum_turning_radius: 0.7         # For Hybrid/Lattice nodes: minimum turning radius in m of path / vehicle
       reverse_penalty: 2.1                # For Reeds-Shepp model: penalty to apply if motion is reversing, must be => 1
       change_penalty: 0.0                 # For Hybrid nodes: penalty to apply if motion is changing directions, must be >= 0
       non_straight_penalty: 1.20          # For Hybrid nodes: penalty to apply if motion is non-straight, must be => 1
@@ -419,8 +423,8 @@ velocity_smoother:
     smoothing_frequency: 5.0
     scale_velocities: False
     feedback: "OPEN_LOOP"
-    max_velocity: [0.5, 0.0, 1.5]
-    min_velocity: [-0.5, 0.0, -1.5]
+    max_velocity: [1.0, 0.0, 1.5]
+    min_velocity: [-1.0, 0.0, -1.5]
     max_accel: [1.5, 0.0, 3.0]
     max_decel: [-1.5, 0.0, -3.0]
     # used in the CLOSED_LOOP feedback mode

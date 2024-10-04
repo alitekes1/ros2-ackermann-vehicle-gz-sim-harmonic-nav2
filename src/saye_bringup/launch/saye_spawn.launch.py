@@ -49,7 +49,7 @@ def generate_launch_description():
     rviz = Node(
        package='rviz2',
        executable='rviz2',
-       arguments=['-d', os.path.join(pkg_project_bringup, 'config', 'navigation.rviz')],
+       arguments=['-d', os.path.join(pkg_project_bringup, 'rviz', 'saye.rviz')],
        condition=IfCondition(LaunchConfiguration('rviz'))
     )
 
@@ -69,6 +69,6 @@ def generate_launch_description():
         DeclareLaunchArgument('rviz', default_value='true',
                               description='Open RViz.'),
         bridge,
-        robot_state_publisher
-        # rviz
+        robot_state_publisher,
+        rviz
     ])
