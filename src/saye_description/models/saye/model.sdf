@@ -23,7 +23,7 @@
         <pose>.1371 0 -.0115 -0.018 0 1.5707</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_description/models/saye/meshes/BaseReduced.dae</uri>
+           <uri >package://saye_description/models/saye/meshes/BaseReduced.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -32,7 +32,7 @@
         <geometry>
           <mesh>
           /meshes/BaseReduced.dae
-           <uri >file:///home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_description/models/saye/meshes/TopReduced.dae</uri>
+           <uri >package://saye_description/models/saye/meshes/TopReduced.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -64,7 +64,7 @@
         <pose>0 0 -.028 0 0 0</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_description/models/saye/meshes/STL27L.dae</uri>
+           <uri >package://saye_description/models/saye/meshes/STL27L.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -466,7 +466,7 @@
         <pose>0 0 0 0 0 3.14159</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_description/models/saye/meshes/Wheel.dae</uri>
+           <uri >package://saye_description/models/saye/meshes/Wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -553,7 +553,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-           <uri>file:///home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_description/models/saye/meshes/Wheel.dae</uri>
+           <uri>package://saye_description/models/saye/meshes/Wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -674,7 +674,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_description/models/saye/meshes/Wheel.dae</uri>
+           <uri >package://saye_description/models/saye/meshes/Wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -716,7 +716,7 @@
         <pose>0 0 0 0 0 3.14159</pose>
         <geometry>
           <mesh>
-           <uri >file:///home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_description/models/saye/meshes/Wheel.dae</uri>
+           <uri >package://saye_description/models/saye/meshes/Wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>

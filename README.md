@@ -45,6 +45,15 @@ Additionally, this simulation is one of the first implementations of an Ackerman
 - **RViz2**
 - **Nav2**
 
+## Run on own Computer
+*Open terminal*
+- git clone https://github.com/alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2
+- cd ros2-ackermann-vehicle-gz-sim-harmonic-nav2/
+- colcon build && source install/setup.bash
+- export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src
+- export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src
+- ros2 launch saye_bringup saye_spawn.launch.py
+
 ## Future Work
 
 - **Deep Reinforcement Learning (DRL)**: Future efforts may focus on training the vehicle for complex scenarios using DRL algorithms.
