@@ -1,62 +1,68 @@
-This project involves the simulation of a custom vehicle with Ackermann steering capabilities, developed using ROS2 and the Gazebo Sim Harmonic environment.
+# Ackermann Steering Vehicle Simulation in ROS2 with Gazebo Sim Harmonic
 
-The vehicle is equipped with multiple sensors, including LiDAR, front/rear cameras, and left/right cameras, all of which communicate via ROS2.
-
-The model is visualized in RViz2, where the sensors and robot state are displayed. This project has been enhanced with the integration of the Nav2 stack for autonomous navigation, utilizing techniques such as AMCL and SLAM for improved localization and mapping.
-
-Additionally, this simulation is one of the first implementations of an Ackermann steering vehicle in the Gazebo Sim Harmonic environment.
+This project features the simulation of a custom vehicle with **Ackermann steering capabilities**, developed using **ROS2** and the **Gazebo Sim Harmonic environment**. The model integrates a variety of sensors and navigation tools for autonomous operation, making it one of the first implementations of an Ackermann steering vehicle in this simulation framework.
 
 ## Features
 
-### Ackermann Steering
+### 1. **Ackermann Steering**
 
-- Custom vehicle model with Ackermann steering dynamics.
+- A custom vehicle model built with realistic Ackermann steering dynamics for accurate maneuverability.
 
-### ROS2 Communication
+### 2. **ROS2 Communication**
 
-- Sensor data and control signals are fully integrated with ROS2.
+- All sensor data and control signals are fully integrated into the ROS2 ecosystem for seamless interoperability.
 
-### Sensors
+### 3. **Sensors**
 
-- **IMU**
-- **Odometry**
-- **LiDAR**: Mounted for obstacle detection.
+- **IMU**: Provides orientation and angular velocity.
+- **Odometry**: Ensures accurate vehicle state feedback.
+- **LiDAR**: Mounted for obstacle detection and environmental scanning.
 - **Cameras**:
     - Front-facing
     - Rear-facing
     - Left-side
     - Right-side
 
-### Navigation
+### 4. **Navigation**
 
-- Integrated with the Nav2 stack for autonomous navigation.
-- Utilizes **AMCL** (Adaptive Monte Carlo Localization) for improved localization.
-- SLAM techniques implemented for real-time mapping and environment understanding.
-- Parameter adjustments made for optimal performance in navigation tasks.
+- Integrated with the **Nav2 stack** for autonomous navigation.
+- **AMCL (Adaptive Monte Carlo Localization)** for improved positional accuracy.
+- **SLAM** techniques implemented for real-time mapping and understanding of the environment.
+- Fine-tuned parameters for optimized navigation performance.
 
-### Visualization
+### 5. **Manual Control (with external joystick)**
 
-- Vehicle model and sensor data visualized in RViz2.
+- Added support for joystick-based manual control in the simulation environment, enabling users to test vehicle movement interactively.
+
+### 6. **Visualization**
+
+- Full model and sensor data visualization in **RViz2**, providing insights into robot states and environmental feedback.
 
 ## Requirements
 
-- **ROS2** (Humble)
+- **ROS2 (Humble)**
 - **Gazebo Sim Harmonic**
 - **RViz2**
 - **Nav2**
 
-## Run on own Computer
-*Open terminal*
-- git clone https://github.com/alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2
-- cd ros2-ackermann-vehicle-gz-sim-harmonic-nav2/
-- colcon build && source install/setup.bash
-- export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src
-- export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src
-- ros2 launch saye_bringup saye_spawn.launch.py
+## Installation and Usage
 
+Run the following commands to set up and launch the simulation:
+
+1. Clone the repository:
+    `git clone https://github.com/alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2 cd ros2-ackermann-vehicle-gz-sim-harmonic-nav2/`
+2. Build the project:
+    `colcon build && source install/setup.bash`
+3. Set environment variables:
+    `export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src`
+4. Launch the simulation:
+    `ros2 launch saye_bringup saye_spawn.launch.py`
 ## Future Work
 
-- **Deep Reinforcement Learning (DRL)**: Future efforts may focus on training the vehicle for complex scenarios using DRL algorithms.
+1. **Deep Reinforcement Learning (DRL):**
+    - Train the vehicle to handle complex scenarios autonomously using advanced DRL algorithms.
+2. **Enhanced Features:**
+    - Explore additional sensor configurations and navigation strategies.
 
 ## Gallery
 
