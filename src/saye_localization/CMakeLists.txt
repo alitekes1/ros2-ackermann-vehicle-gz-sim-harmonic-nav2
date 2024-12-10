@@ -13,8 +13,8 @@ find_package(nav_msgs REQUIRED)
 
 include_directories(include)
 
-add_executable(kalman_filter src/kalman_filter.cpp)
-ament_target_dependencies(kalman_filter rclcpp nav_msgs sensor_msgs)
+add_executable(main src/main.cpp)
+ament_target_dependencies(main rclcpp nav_msgs sensor_msgs geometry_msgs)
 
 install(
   DIRECTORY include
@@ -22,7 +22,7 @@ install(
 )
 
 install(TARGETS
-  kalman_filter
+  main
   DESTINATION lib/${PROJECT_NAME}
 )
 
