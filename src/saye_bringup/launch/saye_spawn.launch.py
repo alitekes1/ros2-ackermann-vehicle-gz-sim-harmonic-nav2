@@ -15,9 +15,11 @@ from launch_ros.actions import Node
 def generate_launch_description():
     # Setup project paths
     pkg_project_bringup = get_package_share_directory('saye_bringup')
+    pkg_project_localization = get_package_share_directory('saye_localization')
     pkg_project_description = get_package_share_directory('saye_description')
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
     
+
     # Load the SDF file from "description" package
     sdf_file  =  os.path.join(pkg_project_description, 'models', 'saye', 'model.sdf')
     with open(sdf_file, 'r') as infp:

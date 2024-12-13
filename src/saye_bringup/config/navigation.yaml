@@ -134,7 +134,7 @@ controller_server:
   ros__parameters:
     allow_reverse: true
     controller_frequency: 30.0
-    goal_tolerance: 1
+    goal_tolerance: 0.5
     yaw_goal_tolerance: 0.5
     FollowPath:
       plugin: "nav2_mppi_controller::MPPIController" # model predict path integral controller
@@ -256,20 +256,20 @@ local_costmap:
 
       width: 3
       height: 3
-      resolution: 0.03
+      resolution: 0.05
       rolling_window: True
       always_send_full_costmap: True
 
-      robot_radius: 0.23
-      # footprint: "[[0.15, 0.045], [0.15, -0.045], [-0.15, -0.045], [-0.15, 0.045]]"
-      footprint_padding: 0.03
+      # robot_radius: 0.23
+      footprint: "[[0.15, 0.045], [0.15, -0.045], [-0.15, -0.045], [-0.15, 0.045]]"
+      footprint_padding: 0.02
 
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         enabled: True
         inflation_radius: 0.7
-        cost_scaling_factor: 8.0
+        cost_scaling_factor: 3.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -288,6 +288,7 @@ local_costmap:
         plugin: "nav2_costmap_2d::StaticLayer"
         enabled: True
         map_subscribe_transient_local: True
+      always_send_full_costmap: True
 
   local_costmap_client:
     ros__parameters:
@@ -311,15 +312,15 @@ global_costmap:
       track_unknown_space: True
 
       robot_radius: 0.23
-      # footprint: "[[0.15, 0.045], [0.15, -0.045], [-0.15, -0.045], [-0.15, 0.045]]"
-      footprint_padding: 0.03
+      footprint: "[[0.15, 0.045], [0.15, -0.045], [-0.15, -0.045], [-0.15, 0.045]]"
+      # footprint_padding: 0.03
 
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
         enabled: True
-        inflation_radius: 0.4
-        cost_scaling_factor: 4.0
+        inflation_radius: 0.75
+        cost_scaling_factor: 3.0
       obstacle_layer:
         plugin: "nav2_costmap_2d::ObstacleLayer"
         enabled: True
@@ -349,7 +350,7 @@ global_costmap:
 map_server:
   ros__parameters:
     use_sim_time: True
-    yaml_filename: "/home/tekes/ros2-ackermann-vehicle-gz-sim-harmonic/src/saye_bringup/maps/map.yaml"
+    yaml_filename: "map.yaml"
 
 map_saver:
   ros__parameters:

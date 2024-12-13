@@ -5,7 +5,6 @@
 #include "sensor_msgs/msg/joy.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 using namespace std::placeholders;
-using namespace std::chrono_literals;
 class Joystick_Controller : public rclcpp::Node
 {
 private:
@@ -25,7 +24,7 @@ Joystick_Controller::Joystick_Controller() : Node("joystick_controller_node")
 {
     this->publisher = create_publisher<geometry_msgs::msg::Twist>("cmd_vel", 10);
     this->subscriber = create_subscription<sensor_msgs::msg::Joy>("joy", 10, std::bind(&Joystick_Controller::subscriber_callback, this, _1));
-    this->timer = create_wall_timer(1000ms, std::bind(&Joystick_Controller::timer_callback, this));
+    this->timer = create_wall_timer(std::chrono::seconds(1), std::bind(&Joystick_Controller::timer_callback, this));
 }
 
 Joystick_Controller::~Joystick_Controller()
