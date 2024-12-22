@@ -9,20 +9,23 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(nav_msgs REQUIRED)
-
 include_directories(include)
 
 add_executable(main src/main.cpp)
-ament_target_dependencies(main rclcpp nav_msgs sensor_msgs geometry_msgs)
+ament_target_dependencies(main rclcpp sensor_msgs geometry_msgs)
+# add_executable(deneme src/deneme.cpp)
+# ament_target_dependencies(deneme rclcpp sensor_msgs geometry_msgs)
 
+# add_executable(calisma src/calisma.cpp)
+# ament_target_dependencies(calisma rclcpp sensor_msgs geometry_msgs)
 install(
   DIRECTORY include
   DESTINATION include
 )
-
 install(TARGETS
   main
+  # deneme
+  # calisma
   DESTINATION lib/${PROJECT_NAME}
 )
 
