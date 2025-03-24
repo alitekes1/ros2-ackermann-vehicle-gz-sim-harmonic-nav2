@@ -57,6 +57,9 @@ Run the following commands to set up and launch the simulation:
     `export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src`
 4. Launch the simulation:
     `ros2 launch saye_bringup saye_spawn.launch.py`
+5. Control car:
+    `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
+   
 ## Future Work
 
 1. **Deep Reinforcement Learning (DRL):**
