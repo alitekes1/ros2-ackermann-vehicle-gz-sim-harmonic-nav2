@@ -81,5 +81,3 @@ Run the following commands to set up and launch the simulation:
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2&type=Date)](https://www.star-history.com/#alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2&Date)
-
-
