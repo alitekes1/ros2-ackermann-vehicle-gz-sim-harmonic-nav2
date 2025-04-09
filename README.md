@@ -78,6 +78,8 @@ Run the following commands to set up and launch the simulation:
 |![Screenshot from 2024-09-23 00-12-13.png](https://github.com/user-attachments/assets/477cce7b-995b-471e-a684-4d82bee0fc34)|![Screenshot from 2024-09-23 00-15-04.png](https://github.com/user-attachments/assets/bf9ad916-14a6-4b62-a799-4169a767e4dd)|
 ![alt text](src/saye_msgs/saye.png) | ![alt text](src/saye_msgs/rviz_saye.png)
 ---
-![star-history-202544](https://github.com/user-attachments/assets/26e31b5e-588e-4880-bc35-b1dde2caad13)
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2&type=Date)](https://www.star-history.com/#alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2&Date)
 
 
