@@ -54,8 +54,8 @@ Run the following commands to set up and launch the simulation:
 2. Build the project:
     `colcon build && source install/setup.bash`
 3. Set environment variables:
-   -`export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src`
-   - `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src`
+   1.`export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src`
+   2.`export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/src`
 5. Launch the simulation:
     `ros2 launch saye_bringup saye_spawn.launch.py`
 6. Control car:
