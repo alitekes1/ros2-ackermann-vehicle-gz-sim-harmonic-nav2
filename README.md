@@ -59,8 +59,25 @@ Run the following commands to set up and launch the simulation:<br>
 2. Build the project:
    `colcon build && source install/setup.bash`
 3. Set environment variables:
-   1. `export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/`
-   2. `export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/`
+   ```bash
+   # Set environment variables for current session
+   export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/
+   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/
+   ```
+
+   **For Permanent Setup:**
+   
+   To make these environment variables permanent, add them to your `.bashrc` file:
+   ```bash
+   # Add environment variables to .bashrc
+   echo 'export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/' >> ~/.bashrc
+   echo 'export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/' >> ~/.bashrc
+   
+   # Apply changes
+   source ~/.bashrc
+   ```
+
+   > **Note:** Replace `/your/path/` with your actual installation path.
 4. Launch the simulation:
    `ros2 launch saye_bringup saye_spawn.launch.py`
 5. Control car:
@@ -82,6 +99,10 @@ Run the following commands to set up and launch the simulation:<br>
 | ![Screenshot from 2024-09-23 00-13-03.png](https://github.com/user-attachments/assets/1d2b56f7-34c1-4b01-9a85-fb01ceab5bd6) | ![Screenshot from 2024-09-23 00-09-04.png](https://github.com/user-attachments/assets/ba6853fd-4143-4b4d-bbc6-072895e4c75e) |
 | ![Screenshot from 2024-09-23 00-12-13.png](https://github.com/user-attachments/assets/477cce7b-995b-471e-a684-4d82bee0fc34) | ![Screenshot from 2024-09-23 00-15-04.png](https://github.com/user-attachments/assets/bf9ad916-14a6-4b62-a799-4169a767e4dd) |
 | ![alt text](saye_msgs/saye.png)                                                                                         | ![alt text](/saye_msgs/rviz_saye.png)                                                                                    |
+
+## TF Tree
+
+![TF Tree](saye_msgs/frames.png)
 
 ---
 

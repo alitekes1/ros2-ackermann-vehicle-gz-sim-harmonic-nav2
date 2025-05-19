@@ -45,7 +45,7 @@
     </link>
 
     <link name="sensor_link">
-      <pose >.05 0 .134 0 0 0</pose>
+      <pose>.05 0 .134 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.0000001</mass>
@@ -438,11 +438,17 @@
        </sensor>
     </link>
 
-    <joint name="sensor_joint" type="fixed">
-        <pose >0 0 0 0 0 0</pose>
+    <joint name="sensor_joint" type="revolute">
+        <pose>0 0 0 0 0 0</pose>
         <parent>base_link</parent>
         <child>sensor_link</child>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <axis>
+            <xyz>0 0 1</xyz>
+            <limit>
+                <lower>-3.14</lower>
+                <upper>3.14</upper>
+            </limit>
+        </axis>
     </joint>
 
     <link name="front_left_wheel_link">
@@ -758,5 +764,22 @@
       <max_acceleration>10</max_acceleration>
       <topic>/cmd_vel</topic>
     </plugin>
+
+    <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
+      <publish_link_pose>true</publish_link_pose>
+      <publish_sensor_pose>true</publish_sensor_pose>
+      <publish_model_pose>false</publish_model_pose>
+      <use_pose_vector_msg>true</use_pose_vector_msg>
+    </plugin>
+
+    <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>saye</robot_base_frame>
+      <odom_topic>odom</odom_topic> 
+      <dimensions>3</dimensions>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher"></plugin> 
+
   </model>
 </sdf>

@@ -65,9 +65,20 @@ def generate_launch_description():
         }],
         output='screen'
     )
-
+    gz_spawn_entity = Node(
+        package='ros_gz_sim',
+        executable='create',
+        output='screen',
+        arguments=[
+            '-topic', '/robot_description',  # Namespace'e uygun topic
+            '-name', 'saye',
+            '-allow_renaming', 'true',
+            '-z', '0.35'
+        ]
+    )
     return LaunchDescription([
         gz_sim,
+        gz_spawn_entity,
         DeclareLaunchArgument('rviz', default_value='true',
                               description='Open RViz.'),
         bridge,

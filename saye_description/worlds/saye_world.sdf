@@ -64,35 +64,6 @@
       </link>
     </model>
 
-    <model name="saye">
-      <self_collide>true</self_collide>
-      <pose>0 0 0.35 0 0 0</pose>
-      <include merge="true">
-          <uri>model://saye_description/models/saye/model.sdf</uri>
-      </include>
-      
-       <plugin
-        filename="gz-sim-joint-state-publisher-system"
-        name="gz::sim::systems::JointStatePublisher">
-      </plugin>
-
-      <plugin
-        filename="gz-sim-pose-publisher-system"
-        name="gz::sim::systems::PosePublisher">
-        <publish_link_pose>true</publish_link_pose>
-        <use_pose_vector_msg>true</use_pose_vector_msg>
-        <static_publisher>false</static_publisher>
-        <static_update_frequency>1</static_update_frequency>
-      </plugin>
-
-      <plugin
-          filename="gz-sim-odometry-publisher-system"
-          name="gz::sim::systems::OdometryPublisher">
-          <odom_frame>odom</odom_frame>
-          <robot_base_frame>saye</robot_base_frame>
-      </plugin>
-    </model>
-
     <include>
       <name>warehouse</name> 
       <pose>0 0 -0.09 0 0 0</pose>

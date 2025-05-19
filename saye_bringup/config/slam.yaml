@@ -14,6 +14,7 @@ slam:
     map_frame: map
     base_frame: saye
     scan_topic: /scan
+    use_map_saver: true
 
     # mode: mapping # It will be set in launch file
     debug_logging: false
@@ -21,6 +22,7 @@ slam:
     transform_publish_period: 0.02 # If 0 never publishes odometry
     map_update_interval: 2.0
     resolution: 0.04
+    min_laser_range: 0.3 #for rastering images
     max_laser_range: 50.0
     minimum_time_interval: 0.1
     transform_timeout: 0.2
