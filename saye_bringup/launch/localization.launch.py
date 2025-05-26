@@ -28,7 +28,7 @@ def generate_launch_description():
     )
 
     declare_use_sim_time_cmd = DeclareLaunchArgument(
-        'use_sim_time', default_value='false', description='Use simulation (Gazebo) clock if true'
+        'use_sim_time', default_value='true', description='Use simulation (Gazebo) clock if true'
     )
 
     nav2_bringup_launch = IncludeLaunchDescription(
