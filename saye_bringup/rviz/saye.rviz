@@ -8,10 +8,14 @@ Panels:
         - /Status1
         - /TF1/Frames1
         - /TF1/Tree1
-        - /Map1
         - /Map1/Status1
         - /Map1/Topic1
-        - /Path2
+        - /MarkerArray1
+        - /MarkerArray1/Topic1
+        - /MarkerArray1/Namespaces1
+        - /PoseArray1
+        - /PoseArray1/Topic1
+        - /Map2
       Splitter Ratio: 0.7288135886192322
     Tree Height: 766
   - Class: rviz_common/Selection
@@ -68,9 +72,9 @@ Visualization Manager:
       Enabled: true
       Invert Rainbow: false
       Max Color: 255; 255; 255
-      Max Intensity: 15.132802963256836
+      Max Intensity: 14.986806869506836
       Min Color: 0; 0; 0
-      Min Intensity: -15.055619239807129
+      Min Intensity: -15.000000953674316
       Name: LaserScan
       Position Transformer: XYZ
       Selectable: true
@@ -358,6 +362,61 @@ Visualization Manager:
         Reliability Policy: Reliable
         Value: /plan_smoothed
       Value: true
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: MarkerArray
+      Namespaces:
+        Candidate Trajectories: false
+        Optimal Trajectory: true
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /trajectories
+      Value: true
+    - Alpha: 1
+      Arrow Length: 0.30000001192092896
+      Axes Length: 0.30000001192092896
+      Axes Radius: 0.009999999776482582
+      Class: rviz_default_plugins/PoseArray
+      Color: 255; 25; 0
+      Enabled: true
+      Head Length: 0.07000000029802322
+      Head Radius: 0.029999999329447746
+      Name: PoseArray
+      Shaft Length: 0.23000000417232513
+      Shaft Radius: 0.009999999776482582
+      Shape: Arrow (Flat)
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Best Effort
+        Value: /particle_cloud
+      Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_costmap/costmap
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /local_costmap/costmap_updates
+      Use Timestamp: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -404,25 +463,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 14.82055950164795
+      Distance: 11.527505874633789
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.6291090250015259
-        Y: -2.280670166015625
-        Z: -0.04374935105443001
+        X: 0.5052673816680908
+        Y: 0.3666588068008423
+        Z: 0.0982680395245552
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.4197964668273926
+      Pitch: 1.4047964811325073
       Target Frame: saye
       Value: Orbit (rviz)
-      Yaw: 3.8735737800598145
+      Yaw: 3.8585736751556396
     Saved: ~
 Window Geometry:
   Displays:
