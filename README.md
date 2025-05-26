@@ -55,7 +55,7 @@ Run the following commands to set up and launch the simulation:<br>
    More details about installation Gazebo and ROS: <a href="https://gazebosim.org/docs/latest/ros_installation/">Link</a>
 1. Clone the repository:<br>
    `mkdir -p ackermann_sim/src && cd ackermann_sim/src`<br>
-   `git clone https://github.com/alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2`<br>`cd ros2-ackermann-vehicle-gz-sim-harmonic-nav2/`
+   `git clone https://github.com/alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2`<br>`cd ..`
 2. Build the project:
    `colcon build && source install/setup.bash`
 3. Set environment variables:
