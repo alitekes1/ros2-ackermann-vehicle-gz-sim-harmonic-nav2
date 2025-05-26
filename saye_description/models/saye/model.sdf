@@ -3,8 +3,8 @@
     <self_collide>false</self_collide>
     <static>false</static>
     
-    <link name="base_link">
-      <gz_frame_id>saye/base_link</gz_frame_id>
+    <link name="center_link">
+      <pose >0.112 0 0 0 0 0</pose>
       <inertial>
         <pose >0 0 0 0 0 0</pose>
         <mass>3.0</mass>
@@ -42,43 +42,12 @@
           </box>
         </geometry>
       </collision>
-    </link>
 
-    <link name="sensor_link">
-      <pose>.05 0 .134 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.0000001</mass>
-        <inertia>
-          <ixx>0.000000000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.000000000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.000000000001</izz>
-        </inertia>
-      </inertial>
-      <visual name="saye/visual_lidar">
-        <pose>0 0 -.028 0 0 0</pose>
-        <geometry>
-          <mesh>
-           <uri >package://saye_description/models/saye/meshes/STL27L.dae</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name="saye/camera_rack">
-        <pose>-0.05 0 0.05 0 0 0</pose>
-        <geometry>
-          <box>
-            <size>0.03 0.03 0.03</size>
-          </box>
-        </geometry>
-      </visual>
 
       <sensor name="imu_sensor" type="imu">
+      <pose>0 0 0.11 0 0 0</pose>
         <always_on>1</always_on>
         <update_rate>50</update_rate>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
         <topic>imu</topic>
         <imu>
           <enable_orientation>0</enable_orientation>
@@ -154,10 +123,11 @@
           </linear_acceleration>
         </imu>
       </sensor>
+
       <sensor name="navsat_sensor" type="navsat">
+      <pose>0.05 0 0.20 0 0 0</pose>
         <always_on>1</always_on>
         <update_rate>10</update_rate>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
         <topic>navsat</topic>
         <navsat>
           <position_sensing></position_sensing>
@@ -165,7 +135,17 @@
         </navsat>
       </sensor>
       
+      <visual name="saye/visual_lidar">
+        <pose>0 0 0.128 0 0 0</pose>
+        <geometry>
+          <mesh>
+           <uri >package://saye_description/models/saye/meshes/STL27L.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
       <sensor name="gpu_lidar" type="gpu_lidar">
+        <pose>0 0 0.158 0 0 0</pose>
         <lidar>
           <scan>
             <horizontal>
@@ -192,7 +172,6 @@
             <stddev>0.01</stddev>
           </noise>
         </lidar>
-        <gz_frame_id>saye/sensor_link</gz_frame_id>
         <topic>scan</topic>
         <visualize>true</visualize>
         <update_rate>10</update_rate>
@@ -245,13 +224,20 @@
             <stddev>0.007</stddev>
           </noise>
         </camera>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
         <topic>rs_front</topic>
         <visualize>true</visualize>
       </sensor>
 
+      <visual name="saye/camera_rack">
+        <pose>0.11 0 0.15 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.03 0.03 0.03</size>
+          </box>
+        </geometry>
+      </visual>
        <sensor name="camera_front" type="camera">
-         <pose>0.111 0.03 0.235 0 0 0</pose>
+         <pose>0.11 0.0 0.15 0 0 0</pose>
          <always_on>1</always_on>
          <update_rate>10</update_rate>
          <!-- <topic>camera_front<topic> -->
@@ -292,13 +278,13 @@
              <stddev>0.007</stddev>
            </noise>
          </camera>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+
         <topic>camera_front</topic>
         <visualize>true</visualize>
        </sensor>
 
        <sensor name="camera_rear" type="camera">
-         <pose>0.069 -0.03 0.235 0 0 3.141592653589793</pose>
+         <pose>-0.11 0.0 0.15 0 0 3.141592653589793</pose>
          <always_on>1</always_on>
          <update_rate>10</update_rate>
          <camera name="camera_rear">
@@ -338,16 +324,14 @@
              <stddev>0.007</stddev>
            </noise>
          </camera>
-         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
          <topic>camera_rear</topic>
          <visualize>true</visualize>
        </sensor>
 
        <sensor name="camera_left" type="camera">
-         <pose>0.085 0.09 0.27 0 0 1.5707963267948966</pose>
+         <pose>0.0 0.05 0.15 0 0 1.5707963267948966</pose>
          <always_on>1</always_on>
          <update_rate>10</update_rate>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
          <camera name="camera_left">
            <horizontal_fov>1.658</horizontal_fov>
            <lens>
@@ -385,16 +369,14 @@
              <stddev>0.007</stddev>
            </noise>
          </camera>
-         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
          <topic>camera_left</topic>
          <visualize>true</visualize>
        </sensor>
 
        <sensor name="camera_right" type="camera">
-         <pose>0.085 -0.09 0.27 0 0 -1.5707963267948966</pose>
+         <pose>0.0 -0.05 0.15 0 0 -1.5707963267948966</pose>
          <always_on>1</always_on>
          <update_rate>10</update_rate>
-         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
          <camera name="camera_right">
            <horizontal_fov>1.658</horizontal_fov>
            <lens>
@@ -432,24 +414,10 @@
              <stddev>0.007</stddev>
            </noise>
          </camera>
-         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
          <topic>camera_right</topic>
          <visualize>true</visualize>
        </sensor>
     </link>
-
-    <joint name="sensor_joint" type="revolute">
-        <pose>0 0 0 0 0 0</pose>
-        <parent>base_link</parent>
-        <child>sensor_link</child>
-        <axis>
-            <xyz>0 0 1</xyz>
-            <limit>
-                <lower>-3.14</lower>
-                <upper>3.14</upper>
-            </limit>
-        </axis>
-    </joint>
 
     <link name="front_left_wheel_link">
       <pose relative_to="front_left_wheel_joint">0 0 0 0 0 0</pose>
@@ -518,13 +486,13 @@
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <!-- <use_parent_model_frame>1</use_parent_model_frame> -->
       </axis>
     </joint>
     <joint name="front_left_wheel_steering_joint" type="revolute">
-      <parent>base_link</parent>
+      <parent>center_link</parent>
       <child>front_left_wheel_steering_link</child>
-      <pose relative_to="base_link">.112 .10 0 0 0 0</pose>
+      <pose relative_to="center_link">.112 .10 0 0 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -533,7 +501,7 @@
           <velocity>1.0</velocity>
           <effort>25</effort>
         </limit>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <!-- <use_parent_model_frame>1</use_parent_model_frame> -->
       </axis>
     </joint>
 
@@ -605,13 +573,13 @@
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <!-- <use_parent_model_frame>1</use_parent_model_frame> -->
       </axis>
     </joint>
     <joint name="front_right_wheel_steering_joint" type="revolute">
-      <parent>base_link</parent>
+      <parent>center_link</parent>
       <child>front_right_wheel_steering_link</child>
-      <pose relative_to="base_link">.112 -.10 0 0 0 0</pose>
+      <pose relative_to="center_link">.112 -.10 0 0 0 0</pose>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -620,15 +588,15 @@
           <velocity>1.0</velocity>
           <effort>25</effort>
         </limit>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <!-- <use_parent_model_frame>1</use_parent_model_frame> -->
       </axis>
     </joint>
 
 
     <joint name="rear_right_wheel_joint" type="revolute">
-      <parent>base_link</parent>
+      <parent>center_link</parent>
       <child>rear_right_wheel_link</child>
-      <pose relative_to="base_link">-.1135 -.10 0 0 0 0</pose>
+      <pose relative_to="center_link">-.1135 -.10 0 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -639,13 +607,13 @@
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <!-- <use_parent_model_frame>1</use_parent_model_frame> -->
       </axis>
     </joint>
     <joint name="rear_left_wheel_joint" type="revolute">
-      <parent>base_link</parent>
+      <parent>center_link</parent>
       <child>rear_left_wheel_link</child>
-      <pose relative_to="base_link">-.1135 .10 0 0 0 0</pose>
+      <pose relative_to="center_link">-.1135 .10 0 0 0 0</pose>
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
@@ -656,7 +624,7 @@
           <spring_reference>0</spring_reference>
           <spring_stiffness>0</spring_stiffness>
         </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
+        <!-- <use_parent_model_frame>1</use_parent_model_frame> -->
       </axis>
     </joint>
     <link name="rear_right_wheel_link">
