@@ -83,6 +83,12 @@ Run the following commands to set up and launch the simulation:<br>
 5. Control car:
    `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
 
+> **Note:** By default, only the front camera is bridged to ROS 2.  
+> If you want to use all cameras (left, right, rear) in ROS 2,  
+> remove the `#` at the beginning of the relevant camera sections in  
+> `saye_bringup/config/ros_gz_bridge.yaml` to activate them  
+> (e.g., `/camera/left_raw`, `/camera/right_raw`, `/camera/rear_raw`).
+
 ## Future Work
 
 1. **Deep Reinforcement Learning (DRL):**
