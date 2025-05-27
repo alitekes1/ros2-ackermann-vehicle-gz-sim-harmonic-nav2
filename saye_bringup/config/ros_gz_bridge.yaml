@@ -30,33 +30,36 @@
   gz_type_name: "gz.msgs.Pose_V"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "/camera/front_raw"
-  gz_topic_name: "/camera_front"
-  ros_type_name: "sensor_msgs/msg/Image"
-  gz_type_name: "gz.msgs.Image"
-  direction: GZ_TO_ROS
-
 - ros_topic_name: "/imu"
   gz_topic_name: "/imu"
   ros_type_name: "sensor_msgs/msg/Imu"
   gz_type_name: "gz.msgs.IMU"
   direction: GZ_TO_ROS
 
-- ros_topic_name: "/camera/left_raw"
-  gz_topic_name: "/camera_left"
+- ros_topic_name: "/camera/front_raw"
+  gz_topic_name: "/camera_front"
   ros_type_name: "sensor_msgs/msg/Image"
   gz_type_name: "gz.msgs.Image"
   direction: GZ_TO_ROS
-- ros_topic_name: "/camera/right_raw"
-  gz_topic_name: "/camera_right"
-  ros_type_name: "sensor_msgs/msg/Image"
-  gz_type_name: "gz.msgs.Image"
-  direction: GZ_TO_ROS
-- ros_topic_name: "/camera/rear_raw"
-  gz_topic_name: "/camera_rear"
-  ros_type_name: "sensor_msgs/msg/Image"
-  gz_type_name: "gz.msgs.Image"
-  direction: GZ_TO_ROS
+
+# - ros_topic_name: "/camera/left_raw"
+#   gz_topic_name: "/camera_left"
+#   ros_type_name: "sensor_msgs/msg/Image"
+#   gz_type_name: "gz.msgs.Image"
+#   direction: GZ_TO_ROS
+
+# - ros_topic_name: "/camera/right_raw"
+#   gz_topic_name: "/camera_right"
+#   ros_type_name: "sensor_msgs/msg/Image"
+#   gz_type_name: "gz.msgs.Image"
+#   direction: GZ_TO_ROS
+
+# - ros_topic_name: "/camera/rear_raw"
+#   gz_topic_name: "/camera_rear"
+#   ros_type_name: "sensor_msgs/msg/Image"
+#   gz_type_name: "gz.msgs.Image"
+#   direction: GZ_TO_ROS
+
 # - ros_topic_name: "/real_sense/image_raw"
 #   gz_topic_name: "/rs_front/image"
 #   ros_type_name: "sensor_msgs/msg/Image"

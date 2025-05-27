@@ -42,24 +42,8 @@
           </box>
         </geometry>
       </collision>
-    </link>
-
-    <link name="sensor_link">
-      <pose>.05 0 .134 0 0 0</pose>
-      <inertial>
-        <pose>0 0 0 0 0 0</pose>
-        <mass>0.0000001</mass>
-        <inertia>
-          <ixx>0.000000000001</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>0.000000000001</iyy>
-          <iyz>0</iyz>
-          <izz>0.000000000001</izz>
-        </inertia>
-      </inertial>
       <visual name="saye/visual_lidar">
-        <pose>0 0 -.028 0 0 0</pose>
+        <pose>0.05 0 .106 0 0 0</pose> 
         <geometry>
           <mesh>
            <uri >package://saye_description/models/saye/meshes/STL27L.dae</uri>
@@ -67,7 +51,7 @@
         </geometry>
       </visual>
       <visual name="saye/camera_rack">
-        <pose>-0.05 0 0.05 0 0 0</pose>
+        <pose>0 0 .184 0 0 0</pose> 
         <geometry>
           <box>
             <size>0.03 0.03 0.03</size>
@@ -78,7 +62,7 @@
       <sensor name="imu_sensor" type="imu">
         <always_on>1</always_on>
         <update_rate>50</update_rate>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+        <!-- <gz_frame_id>saye/base_link</gz_frame_id> -->
         <topic>imu</topic>
         <imu>
           <enable_orientation>0</enable_orientation>
@@ -154,28 +138,18 @@
           </linear_acceleration>
         </imu>
       </sensor>
-      <sensor name="navsat_sensor" type="navsat">
-        <always_on>1</always_on>
-        <update_rate>10</update_rate>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
-        <topic>navsat</topic>
-        <navsat>
-          <position_sensing></position_sensing>
-          <velocity_sensing></velocity_sensing>
-        </navsat>
-      </sensor>
       
       <sensor name="gpu_lidar" type="gpu_lidar">
         <lidar>
           <scan>
             <horizontal>
-              <samples>1800</samples>
+              <samples>720</samples>
               <resolution>1</resolution>
               <min_angle>-3.1459</min_angle>
               <max_angle>3.1459</max_angle>
             </horizontal>
             <vertical>
-              <samples>16</samples>
+              <samples>12</samples>
               <resolution>1</resolution>
               <min_angle>-0.261799</min_angle>
               <max_angle>0.261799</max_angle>
@@ -192,7 +166,7 @@
             <stddev>0.01</stddev>
           </noise>
         </lidar>
-        <gz_frame_id>saye/sensor_link</gz_frame_id>
+        <gz_frame_id>saye/base_link</gz_frame_id>
         <topic>scan</topic>
         <visualize>true</visualize>
         <update_rate>10</update_rate>
@@ -245,7 +219,7 @@
             <stddev>0.007</stddev>
           </noise>
         </camera>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+        <!-- <gz_frame_id>saye/base_link</gz_frame_id> -->
         <topic>rs_front</topic>
         <visualize>true</visualize>
       </sensor>
@@ -292,7 +266,7 @@
              <stddev>0.007</stddev>
            </noise>
          </camera>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+        <!-- <gz_frame_id>saye/base_link</gz_frame_id> -->
         <topic>camera_front</topic>
         <visualize>true</visualize>
        </sensor>
@@ -338,7 +312,7 @@
              <stddev>0.007</stddev>
            </noise>
          </camera>
-         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <!-- <gz_frame_id>saye/base_link</gz_frame_id> -->
          <topic>camera_rear</topic>
          <visualize>true</visualize>
        </sensor>
@@ -347,7 +321,7 @@
          <pose>0.085 0.09 0.27 0 0 1.5707963267948966</pose>
          <always_on>1</always_on>
          <update_rate>10</update_rate>
-        <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+        <!-- <gz_frame_id>saye/base_link</gz_frame_id> -->
          <camera name="camera_left">
            <horizontal_fov>1.658</horizontal_fov>
            <lens>
@@ -385,7 +359,7 @@
              <stddev>0.007</stddev>
            </noise>
          </camera>
-         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <!-- <gz_frame_id>saye/base_link</gz_frame_id> -->
          <topic>camera_left</topic>
          <visualize>true</visualize>
        </sensor>
@@ -394,7 +368,7 @@
          <pose>0.085 -0.09 0.27 0 0 -1.5707963267948966</pose>
          <always_on>1</always_on>
          <update_rate>10</update_rate>
-         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <!-- <gz_frame_id>saye/base_link</gz_frame_id> -->
          <camera name="camera_right">
            <horizontal_fov>1.658</horizontal_fov>
            <lens>
@@ -432,24 +406,11 @@
              <stddev>0.007</stddev>
            </noise>
          </camera>
-         <!-- <gz_frame_id>saye/sensor_link</gz_frame_id> -->
+         <!-- <gz_frame_id>saye/base_link</gz_frame_id> -->
          <topic>camera_right</topic>
          <visualize>true</visualize>
        </sensor>
     </link>
-
-    <joint name="sensor_joint" type="revolute">
-        <pose>0 0 0 0 0 0</pose>
-        <parent>base_link</parent>
-        <child>sensor_link</child>
-        <axis>
-            <xyz>0 0 1</xyz>
-            <limit>
-                <lower>-3.14</lower>
-                <upper>3.14</upper>
-            </limit>
-        </axis>
-    </joint>
 
     <link name="front_left_wheel_link">
       <pose relative_to="front_left_wheel_joint">0 0 0 0 0 0</pose>
