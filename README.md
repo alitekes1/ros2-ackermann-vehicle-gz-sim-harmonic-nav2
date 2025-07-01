@@ -55,13 +55,13 @@ Run the following commands to set up and launch the simulation:<br>
    More details about installation Gazebo and ROS: <a href="https://gazebosim.org/docs/latest/ros_installation/">Link</a>
 1. Clone the repository:<br>
    `mkdir -p ackermann_sim/src && cd ackermann_sim/src`<br>
-   `git clone https://github.com/alitekes1/ros2-ackermann-vehicle-gz-sim-harmonic-nav2`<br>`cd ..`
+   `git clone https://github.com/alitekes1/ackermann-vehicle-gzsim-ros2`<br>`cd ..`
 2. Build the project:
    `colcon build && source install/setup.bash`
 3. Set environment variables:
    ```bash
    # Set environment variables for current session
-   export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/
+   export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ackermann_sim/src/ackermann-vehicle-gzsim-ros2/
    export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/
    ```
 
@@ -114,5 +114,10 @@ Run the following commands to set up and launch the simulation:<br>
 
 ## Star History
 
-![star-history-2025513](https://github.com/user-attachments/assets/1596ba29-4e51-45a0-83c7-6f395aa95560)
-
+<a href="https://www.star-history.com/#alitekes1/ackermann-vehicle-gzsim-ros2&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=alitekes1/ackermann-vehicle-gzsim-ros2&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=alitekes1/ackermann-vehicle-gzsim-ros2&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=alitekes1/ackermann-vehicle-gzsim-ros2&type=Date" />
+ </picture>
+</a>
