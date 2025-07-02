@@ -13,9 +13,9 @@
   lazy: false
   
 - ros_topic_name: "/odom"
-  gz_topic_name: "/model/saye/odometry_with_covariance"
+  gz_topic_name: "/odom"
   ros_type_name: "nav_msgs/msg/Odometry"
-  gz_type_name: "gz.msgs.OdometryWithCovariance"
+  gz_type_name: "gz.msgs.Odometry"
   direction: GZ_TO_ROS
 
 - ros_topic_name: "/scan"

@@ -45,13 +45,11 @@ This project features the simulation of a custom vehicle with **Ackermann steeri
 - **RViz2**
 - **Nav2**
 
-## Installation and Usage
-
-Run the following commands to set up and launch the simulation:<br>
+## Installation
 
 0. Your need to sure that installation of Gazebo Harmonic and ROS (ros_gz):<br>
    `sudo apt-get install ros-${ROS_DISTRO}-ros-gz`<br>
-   `sudo apt-get install ros-humble-ros-gzharmonic`(Only Humble version)<br>
+   `sudo apt-get install ros-humble-ros-gzharmonic` (Only Humble version)<br>
    More details about installation Gazebo and ROS: <a href="https://gazebosim.org/docs/latest/ros_installation/">Link</a>
 1. Clone the repository:<br>
    `mkdir -p ackermann_sim/src && cd ackermann_sim/src`<br>
@@ -62,7 +60,7 @@ Run the following commands to set up and launch the simulation:<br>
    ```bash
    # Set environment variables for current session
    export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ackermann_sim/src/ackermann-vehicle-gzsim-ros2/
-   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/
+   export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ackermann_sim/src/ackermann-vehicle-gzsim-ros2/
    ```
 
    **For Permanent Setup:**
@@ -70,18 +68,30 @@ Run the following commands to set up and launch the simulation:<br>
    To make these environment variables permanent, add them to your `.bashrc` file:
    ```bash
    # Add environment variables to .bashrc
-   echo 'export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/' >> ~/.bashrc
-   echo 'export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ackermann_sim/src/ros2-ackermann-vehicle-gz-sim-harmonic-nav2/' >> ~/.bashrc
+   echo 'export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:/your/path/ackermann_sim/src/ackermann-vehicle-gzsim-ros2/' >> ~/.bashrc
+   echo 'export ROS_PACKAGE_PATH=$ROS_PACKAGE_PATH:/your/path/ackermann_sim/src/ackermann-vehicle-gzsim-ros2/' >> ~/.bashrc
    
    # Apply changes
    source ~/.bashrc
    ```
 
    > **Note:** Replace `/your/path/` with your actual installation path.
-4. Launch the simulation:
+
+## Usage
+
+### 1. Basic Simulation and Manual Control
+
+1. Launch the simulation:  
    `ros2 launch saye_bringup saye_spawn.launch.py`
-5. Control car:
+
+2. Control car:  
    `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
+
+### 2. SLAM (Simultaneous Localization and Mapping)
+
+- To run SLAM Toolbox for mapping, launch the following after starting the simulation:
+
+   `ros2 launch saye_bringup slam.launch.py`
 
 > **Note:** By default, only the front camera is bridged to ROS 2.  
 > If you want to use all cameras (left, right, rear) in ROS 2,  
