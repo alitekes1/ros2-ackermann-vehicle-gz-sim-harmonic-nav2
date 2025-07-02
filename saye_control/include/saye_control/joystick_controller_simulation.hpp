@@ -2,8 +2,8 @@
 #define JOYSTICK_CONTROLLER__HPP
 
 #include "rclcpp/rclcpp.hpp"
-#include "sensor_msgs/msg/joy.hpp"
 #include "geometry_msgs/msg/twist.hpp"
+#include "sensor_msgs/msg/joy.hpp"
 using namespace std::placeholders;
 
 class Joystick_Controller : public rclcpp::Node
