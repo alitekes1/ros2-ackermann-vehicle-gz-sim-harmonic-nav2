@@ -22,6 +22,7 @@ This project features the simulation of a custom vehicle with **Ackermann steeri
   - Rear-facing
   - Left-side
   - Right-side
+  > **Note:** By default, only the front camera is bridged to ROS 2.If you want to use all cameras (left, right, rear) in ROS 2,remove the `#` at the beginning of the relevant camera sections in `saye_bringup/config/ros_gz_bridge.yaml` to activate them  (e.g., `/camera/left_raw`, `/camera/right_raw`, `/camera/rear_raw`).
 
 ### 4. **Navigation**
 
@@ -93,11 +94,16 @@ This project features the simulation of a custom vehicle with **Ackermann steeri
 
    `ros2 launch saye_bringup slam.launch.py`
 
-> **Note:** By default, only the front camera is bridged to ROS 2.  
-> If you want to use all cameras (left, right, rear) in ROS 2,  
-> remove the `#` at the beginning of the relevant camera sections in  
-> `saye_bringup/config/ros_gz_bridge.yaml` to activate them  
-> (e.g., `/camera/left_raw`, `/camera/right_raw`, `/camera/rear_raw`).
+<video src="saye_msgs/readme_files/saye_slam.mp4" controls="controls" muted="muted" autoplay="autoplay" loop="loop"></video>
+### 3. Navigation with Nav2
+
+- To run the simulation with the Nav2 stack for autonomous navigation, launch the following after starting the simulation:
+
+   `ros2 launch saye_bringup navigation_bringup.launch.py`
+
+<video src="saye_msgs/readme_files/saye_nav2.mp4" controls="controls" muted="muted" autoplay="autoplay" loop="loop"></video>
+
+> **Note:** The videos above are played at 4x speed.
 
 ## Future Work
 
@@ -114,11 +120,11 @@ This project features the simulation of a custom vehicle with **Ackermann steeri
 | --------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | ![Screenshot from 2024-09-23 00-13-03.png](https://github.com/user-attachments/assets/1d2b56f7-34c1-4b01-9a85-fb01ceab5bd6) | ![Screenshot from 2024-09-23 00-09-04.png](https://github.com/user-attachments/assets/ba6853fd-4143-4b4d-bbc6-072895e4c75e) |
 | ![Screenshot from 2024-09-23 00-12-13.png](https://github.com/user-attachments/assets/477cce7b-995b-471e-a684-4d82bee0fc34) | ![Screenshot from 2024-09-23 00-15-04.png](https://github.com/user-attachments/assets/bf9ad916-14a6-4b62-a799-4169a767e4dd) |
-| ![alt text](saye_msgs/saye.png)                                                                                         | ![alt text](/saye_msgs/rviz_saye.png)                                                                                    |
+| ![alt text](saye_msgs/readme_files/saye.png)                                                                                         | ![alt text](saye_msgs/readme_files/rviz_saye.png)                                                                                    |
 
 ## TF Tree
 
-![TF Tree](saye_msgs/frames.png)
+![TF Tree](saye_msgs/readme_files/frames.png)
 
 ---
 
