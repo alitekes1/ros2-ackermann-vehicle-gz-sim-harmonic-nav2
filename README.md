@@ -82,28 +82,32 @@ This project features the simulation of a custom vehicle with **Ackermann steeri
 
 ### 1. Basic Simulation and Manual Control
 
-1. Launch the simulation:  
-   `ros2 launch saye_bringup saye_spawn.launch.py`
-
-2. Control car:  
-   `ros2 run teleop_twist_keyboard teleop_twist_keyboard`
+1.  Launch the simulation:
+    ```bash
+    ros2 launch saye_bringup saye_spawn.launch.py
+    ```
+2.  Control car:
+    ```bash
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard
+    ```
 
 ### 2. SLAM (Simultaneous Localization and Mapping)
 
-- To run SLAM Toolbox for mapping, launch the following after starting the simulation:
+-   To run SLAM Toolbox for mapping, launch the following after starting the simulation:
+    ```bash
+    ros2 launch saye_bringup slam.launch.py
+    ```
+    [![SLAM- Youtube](https://img.youtube.com/vi/QWcJ9TlqFOU/0.jpg)](https://www.youtube.com/watch?v=QWcJ9TlqFOU "Proje Tanıtımı")
 
-   `ros2 launch saye_bringup slam.launch.py`
-
-<video src="saye_msgs/readme_files/saye_slam.mp4" controls="controls" muted="muted" autoplay="autoplay" loop="loop"></video>
 ### 3. Navigation with Nav2
 
-- To run the simulation with the Nav2 stack for autonomous navigation, launch the following after starting the simulation:
+-   To run the simulation with the Nav2 stack for autonomous navigation, launch the following after starting the simulation:
+    ```bash
+    ros2 launch saye_bringup navigation_bringup.launch.py
+    ```
+    [![Autonomus Navigation - Youtube](https://img.youtube.com/vi/SJ4NrbdlNZo/0.jpg)](https://www.youtube.com/watch?v=SJ4NrbdlNZo "NAV2")
 
-   `ros2 launch saye_bringup navigation_bringup.launch.py`
-
-<video src="saye_msgs/readme_files/saye_nav2.mp4" controls="controls" muted="muted" autoplay="autoplay" loop="loop"></video>
-
-> **Note:** The videos above are played at 4x speed.
+> **Note:** The YouTube videos above are played at 4x speed. You can reach the videos by click on the images.
 
 ## Future Work
 
